@@ -20,15 +20,6 @@ const Posts = () => {
       dispatch(getPosts());
     }, []);
 
-    // activity 8...
-    const handleLikePost = (postId) => {
-      const postData = {
-        postId: postId,
-        userId: user._id,
-      };
-      dispatch(likePost(postData));
-      navigate("/home");
-    };
     /////
 
   return (
@@ -45,12 +36,7 @@ const Posts = () => {
                 <p> {moment(post.createdAt).fromNow()}</p>
                 {post.postMsg}
                 
-                <p className="likes">
-                  <Link onClick={handleLikePost(post._id)}>
-                    <AiFillLike />
-                  </Link>
-                  ({post.likes.count})
-                </p>
+                
               </td>
               
             </tr>
